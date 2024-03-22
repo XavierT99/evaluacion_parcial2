@@ -2,7 +2,7 @@ import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CLIENTES } from 'src/models/models';
-import { IClientes } from './clientes.interface';
+import { IClientes } from './clientes.interfaces';
 import { ClientesDTO } from './dto/clientes.dto';
 
 @Injectable()

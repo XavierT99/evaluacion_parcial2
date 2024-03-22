@@ -4,7 +4,7 @@ import { CochesService } from './coches.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { COCHES } from 'src/models/models';
 import { CochesSchema } from './schema/coches.schema';
-import { AlquileresModule } from 'src/alquileres/alquileres.module';
+import { AlquileressModule } from 'src/alquileres/alquileres.module';
 import { ClientesModule } from 'src/clientes/clientes.module';
 
 @Module({
@@ -14,7 +14,7 @@ import { ClientesModule } from 'src/clientes/clientes.module';
       useFactory: ()=> CochesSchema.plugin(require('mongoose-autopopulate')),
     },
   ]),
-  AlquileresModule,
+  AlquileressModule,
   ClientesModule,
   ],
   controllers: [CochesController],

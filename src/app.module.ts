@@ -3,11 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AlquileresModule } from './alquileres/alquileres.module';
-import { ClientesModule } from './clientes/clientes.module';
 import { CochesModule } from './coches/coches.module';
 import { ModelosModule } from './modelos/modelos.module';
-
+import { AlquileressModule } from './alquileres/alquileres.module';
+import { ClientesModule } from './clientes/clientes.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -15,7 +14,7 @@ import { ModelosModule } from './modelos/modelos.module';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.urimongo),
-    AlquileresModule,
+    AlquileressModule,
     ClientesModule,
     CochesModule,
     ModelosModule,

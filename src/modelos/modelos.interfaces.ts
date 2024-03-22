@@ -1,4 +1,4 @@
-import { IClientes } from "src/clientes/clientes.interface";
+import { IClientes } from "src/clientes/clientes.interfaces";
 
 export interface IModelos extends Document {
     marca: string;

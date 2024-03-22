@@ -2,7 +2,7 @@ import { Delete, HttpStatus, Injectable, Param } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ALQUILERES } from 'src/models/models';
-import { IAlquileres } from './alquileres.interface';
+import { IAlquileres } from './alquileres.interfaces';
 import { AlquileresDTO } from './dto/alquileres.dto';
 
 @Injectable()

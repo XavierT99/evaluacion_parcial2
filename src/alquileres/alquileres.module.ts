@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AlquileresController } from './alquileres.controller';
+import { AlquileresController } from './alquileres.controllers';
 import { AlquileresService } from './alquileres.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ALQUILERES} from 'src/models/models';
