@@ -19,4 +19,4 @@ import { AlquileresSchema } from './schema/alquileres.schema';
   providers: [AlquileresService],
   exports: [AlquileresService],
 })
-export class AutoresModule {}
+export class AlquileressModule {}
