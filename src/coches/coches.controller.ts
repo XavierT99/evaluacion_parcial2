@@ -53,7 +53,7 @@ export class CochesController {
     ){
         const clientes = await this.clientesService.uno(idClientes);
         if(!clientes) throw new Error('Cliente no encontrado');
-        return this.cochesService.insertarCliente(idCoches, idClientes);
+        return this.cochesService.insertarClientes(idCoches, idClientes);
     }
 
     
