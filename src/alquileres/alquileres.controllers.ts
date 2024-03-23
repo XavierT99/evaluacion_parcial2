@@ -1,33 +1,43 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { AlquileresService } from './alquileres.service';
 import { AlquileresDTO } from './dto/alquileres.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('alquileres')
 @Controller('api/v2/alquileres')
 export class AlquileresController {
-    constructor(private alquileresService:AlquileresService){}
+  constructor(private readonly alquileresService: AlquileresService) {}
 
-    @Post()
-    insertar(@Body() alquileresDTO:AlquileresDTO){
-        return this.alquileresService.insertar(alquileresDTO);
-    }
+  @Post()
+  insertar(@Body() alquileresDTO: AlquileresDTO) {
+    return this.alquileresService.insertar(alquileresDTO);
+  }
 
-    @Get()
-    todos(){
-        return this.alquileresService.todos();
-    }
+  @Get()
+  todos() {
+    return this.alquileresService.todos();
+  }
 
-    @Get(':id')
-    uno(@Param('id') id:string){
-        return this.alquileresService.uno(id);
-    }
+  @Get(':id')
+  uno(@Param('id') id: string) {
+    return this.alquileresService.uno(id);
+  }
 
-    @Put(':id')
-    actualizar(@Param('id') id:string, @Body() alquileresDTO:AlquileresDTO){
-        return this.alquileresService.actualizar(id, alquileresDTO);
-    }
+  @Put(':id')
+  actualizar(@Param('id') id: string, @Body() alquileresDTO: AlquileresDTO) {
+    return this.alquileresService.actualizar(id, alquileresDTO);
+  }
 
-    @Delete(':id')
-    eliminar(@Param('id') id:string){
-        return this.alquileresService.eliminar(id);
-    }
+  @Delete(':id')
+  eliminar(@Param('id') id: string) {
+    return this.alquileresService.eliminar(id);
+  }
 }
