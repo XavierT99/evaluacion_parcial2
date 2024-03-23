@@ -9,7 +9,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async validarusuario(username: string, password: string): Promise<any> {
+  async validarUsuario(username: string, password: string): Promise<any> {
     const user = await this.clientesService.BuscarporNombre(username);
 
     const isValidPassword = await this.clientesService.verficaContrasenia(
