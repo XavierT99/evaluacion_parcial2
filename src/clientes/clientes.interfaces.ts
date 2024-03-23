@@ -1,3 +1,6 @@
-export interface IClientes extends Document{
-    nombre: string;
+export interface IUser extends Document {
+    name: string;
+    email: string;
+    password: string;
+    username: string;
 }
