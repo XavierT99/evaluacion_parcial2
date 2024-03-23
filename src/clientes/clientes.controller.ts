@@ -1,33 +1,42 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { ClientesService } from './clientes.service';
 import { ClientesDTO } from './dto/clientes.dto';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Clientes')
 @Controller('api/v2/clientes')
 export class ClientesController {
-    constructor(private readonly clientesService: ClientesService){}
+  constructor(private readonly clientesService: ClientesService) {}
 
-    @Post()
-    insertar(@Body() clientesDTO:ClientesDTO){
-        return this.clientesService.insertar(clientesDTO);
-    }
+  @Post()
+  insertar(@Body() clientesDTO: ClientesDTO) {
+    return this.clientesService.insertar(clientesDTO);
+  }
 
-    @Get()
-    todos(){
-        return this.clientesService.todos();
-    }
+  @Get()
+  todos() {
+    return this.clientesService.todos();
+  }
 
-    @Get(':id')
-    uno(@Param('id') id:string){
-        return this.clientesService.uno(id);
-    }
+  @Get(':id')
+  uno(@Param('id') id: string) {
+    return this.clientesService.uno(id);
+  }
 
-    @Put(':id')
-    actualizar(@Param('id') id:string, @Body() clientesDTO:ClientesDTO){
-        return this.clientesService.actualizar(id, clientesDTO);
-    }
+  @Put(':id')
+  actualizar(@Param('id') id: string, @Body() clientesDTO: ClientesDTO) {
+    return this.clientesService.actualizar(id, clientesDTO);
+  }
 
-    @Delete(':id')
-    eliminar(@Param('id') id:string){
-        return this.clientesService.eliminar(id);
-    }
+  @Delete(':id')
+  eliminar(@Param('id') id: string) {
+    return this.clientesService.eliminar(id);
+  }
 }
