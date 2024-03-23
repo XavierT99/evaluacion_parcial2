@@ -1,7 +1,21 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 export class ClientesDTO {
-    @IsNotEmpty({message: 'El nombre es requerido'})
-    @IsString({message: 'El nombre debe ser un string'})
-    readonly titulo: string;
+  @ApiProperty()
+  @IsNotEmpty({ message: 'El texto es requerido' })
+  @IsString()
+  readonly name: string;
+  @IsNotEmpty({ message: 'El texto es requerido' })
+  @IsEmail()
+  @ApiProperty()
+  readonly email: string;
+  @IsNotEmpty({ message: 'El texto es requerido' })
+  @IsString()
+  @ApiProperty()
+  readonly password: string;
+  @IsNotEmpty({ message: 'El texto es requerido' })
+  @IsString()
+  @ApiProperty()
+  readonly clientesname: string;
 }
