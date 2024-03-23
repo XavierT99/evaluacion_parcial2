@@ -22,7 +22,7 @@ export class AlquileresService {
         return await this.modelo.findById(id);
     }
 
-    async actualizar(id:string, autoresDTO:AlquileresDTO): Promise<IAlquileres>{
+    async actualizar(id:string, alquileresDTO:AlquileresDTO): Promise<IAlquileres>{
         return await this.modelo.findByIdAndUpdate(id, AlquileresDTO, {new:true});
     }
 
