@@ -1,7 +1,20 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsDate, IsNotEmpty, IsString } from 'class-validator';
+import { Type } from 'class-transformer';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CochesDTO {
-    @IsNotEmpty({message: 'El campo titulo no puede estar vacío'})
-    @IsString({message: 'El campo titulo debe ser de tipo string'})
-    readonly titulo: string;
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
+  readonly marca: string;
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
+  readonly anio: string;
+  @ApiProperty()
+  @IsNotEmpty()
+  @Type(() => Date)
+  @IsDate()
+  readonly color;
+
 }
