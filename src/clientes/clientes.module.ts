@@ -1,19 +1,23 @@
 import { Module } from '@nestjs/common';
-import { ClientesController } from './clientes.controller';
-import { ClientesService } from './clientes.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CLIENTES } from 'src/models/models';
-import { ClientesSchema } from './schema/clientes.schema';
+import { ClienteSchema } from './schema/clientes.schema';
+import { ClientesService } from './clientes.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeatureAsync([{
-      name: CLIENTES.name,
-      useFactory:()=>ClientesSchema,
-    }])
+    MongooseModule.forFeatureAsync([
+      {
+        name: 'Cliente',
+        useFactory: async () => ClienteSchema,
+      },
+      {
+        name: 'Coches',
+        useFactory: async () => CochesModel.schema,
+      },
+    ]),
   ],
-  controllers: [ClientesController],
-  providers: [ClientesService],
-  exports: [ClientesService],
+  providers: const [ClientesService],
+  exports: [ClientesService], 
 })
-export class EditorialesModule {}
+export class ClienteModule {}
+
