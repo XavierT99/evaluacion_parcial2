@@ -16,5 +16,6 @@ export class CochesDTO {
   @Type(() => Date)
   @IsDate()
   readonly color;
+  static schema: any;
 
 }

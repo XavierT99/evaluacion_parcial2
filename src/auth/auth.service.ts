@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
+import { UsersService } from 'src/users/users.service';
 import { JwtService } from '@nestjs/jwt';
-import { ClientesService } from 'src/clientes/clientes.service';
-import { ClientesDTO } from 'src/clientes/dto/clientes.dto';
+import { UserDTO } from 'src/users/dto/user.dto';
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly clientesService: ClientesService,
+    private readonly userService: UsersService,
     private readonly jwtService: JwtService,
   ) {}
 
-  async validarUsuario(username: string, password: string): Promise<any> {
-    const user = await this.clientesService.BuscarporNombre(username);
+  async validarusuario(username: string, password: string): Promise<any> {
+    const user = await this.userService.BuscarporNombre(username);
 
-    const isValidPassword = await this.clientesService.verficaContrasenia(
+    const isValidPassword = await this.userService.verficaContrasenia(
       password,
-      clientes.password,
+      user.password,
     );
 
     if (user && isValidPassword) return user;
@@ -27,7 +27,7 @@ export class AuthService {
     };
     return { access_token: this.jwtService.sign(payload) };
   }
-  async singUp(clientesDTO: ClientesDTO) {
-    return this.clientesService.insertar(clientesDTO);
+  async singUp(userDTO: UserDTO) {
+    return this.userService.insertar(userDTO);
   }
 }

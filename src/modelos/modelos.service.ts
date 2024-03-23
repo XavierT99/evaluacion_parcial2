@@ -7,6 +7,9 @@ import { ModelosDTO } from './dto/modelos.dto';
 
 @Injectable()
 export class ModelosService {
+    insertarCliente(idModelos: string, idClientes: string) {
+        throw new Error('Method not implemented.');
+    }
     constructor(@InjectModel(MODELOS.name) private readonly model:Model<IModelos>){}
 
     insertar(modelosdto:ModelosDTO) : Promise<IModelos>{

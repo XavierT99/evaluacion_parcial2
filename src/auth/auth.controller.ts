@@ -2,7 +2,7 @@ import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local.guard';
-import { ClientesDTO } from 'src/clientes/dto/clientes.dto';
+import { UserDTO } from 'src/users/dto/user.dto';
 @ApiTags('Autenticación')
 @Controller('api/v1/auth')
 export class AuthController {
@@ -15,7 +15,7 @@ export class AuthController {
     // return await this.authService.singIn(req.user);
   }
   @Post('singup')
-  async singUp(@Body() clientesDTO: ClientesDTO) {
-    return await this.authService.singUp(clientesDTO);
+  async singUp(@Body() userDTO: UserDTO) {
+    return await this.authService.singUp(userDTO);
   }
 }
